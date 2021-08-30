@@ -9,19 +9,19 @@
 <body>
 
     <h1>veuiller entre votre citation</h1>
-    <?php 
+ <?php 
     $servername  = "localhost";
     $username = "root";
-    $password = " ";
+    $password = "root";
 
-    $conn =new mysqli($servername, $username, $password);
+   try{
+      
+    $conn =new PDO("mysql:host=$servername;dbname-bddtest", $username, $password);
+    $conn-> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   }
 
-    if($conn->connect_error){
-        die("Erreur : " . $conn->connect_error);
-    }
-    echo "connection reussie";
-
-    ?>
+   
+?>
     <form action="index.php" method="POST">
         <label for="auteur">quel est le nom de l'auteur</label>
         <input type="text" name="auteur"></br>
