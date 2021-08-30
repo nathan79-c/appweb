@@ -7,7 +7,21 @@
     <title>mes citation</title>
 </head>
 <body>
+
     <h1>veuiller entre votre citation</h1>
+    <?php 
+    $servername  = "localhost";
+    $username = "root";
+    $password = " ";
+
+    $conn =new mysqli($servername, $username, $password);
+
+    if($conn->connect_error){
+        die("Erreur : " . $conn->connect_error);
+    }
+    echo "connection reussie";
+
+    ?>
     <form action="index.php" method="POST">
         <label for="auteur">quel est le nom de l'auteur</label>
         <input type="text" name="auteur"></br>
@@ -15,4 +29,5 @@
         <input type="text" name="citation"></br>
     </form>
 </body>
+
 </html>
