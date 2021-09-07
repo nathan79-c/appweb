@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>mes citations preferes</title>
 </head>
 <body>
-    <h1>LISTE DE CITATION PREFERE</h1>
+<diV class="conteneur">
+    <h1>LISTE DE CITATION PREFEREES</h1>
   
 
     <?php 
@@ -38,6 +39,7 @@
     
     
     ?>
+    <a href="index.php" >ajouter une nouvelle citation</a>
     <table>
       <thead>
         <tr class="head">
@@ -57,7 +59,8 @@
           <?php endwhile; ?>
       </tbody>
     </table>
-    <a href="index.php">ajouter une nouvelle citation</a>
+    </diV>
+    
 
 </body>
 </html>
