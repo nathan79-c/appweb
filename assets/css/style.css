@@ -1,0 +1,29 @@
+@import url('bootstrap.min.css');
+
+body{
+    background-color: rgba(20, 20, 20, 0.9);
+    color: blanchedalmond;
+    
+}
+.head{
+    color: crimson;
+}
+th, td{
+    border: solid 2px greenyellow;
+    margin: 10px;
+    padding: 20px;
+}
+a{
+    text-decoration: none;
+    color: rgba(51, 125, 221, 0.6);
+    font-size: 20px;
+    margin-top: 30px;
+}
+.conteneur{
+    width: 100vw;
+    text-align: center;
+}
+table{
+    position: absolute;
+    left: 250px;
+}
