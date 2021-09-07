@@ -9,25 +9,37 @@
 <body>
 
     <h1>veuiller entre votre citation</h1>
- <?php 
-    $servername  = "localhost";
-    $username = "root";
-    $password = "root";
 
-   try{
-      
-    $conn =new PDO("mysql:host=$servername;dbname-bddtest", $username, $password);
-    $conn-> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   }
-
-   
-?>
     <form action="index.php" method="POST">
         <label for="auteur">quel est le nom de l'auteur</label>
-        <input type="text" name="auteur"></br>
+        <input type="text" name="auteur" require></br>
         <label for="citation">entrez  votre citation preferer</label>
-        <input type="text" name="citation"></br>
+        <input type="text" name="citation" require></br>
+        <input type="submit" value="envoyer">
     </form>
+    <?php
+        
+$auteur = "$_POST[auteur]";
+$citation = " $_POST[citation]";
+    $serveur = "localhost" ;
+    $dbname = "pdodb";
+    $utilisateur = "root";
+    $password = "";
+
+try{
+    $dbco = new PDO("mysql:host=$serveur;dbname=$dbname", $utilisateur,$password);
+    $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $sql = "INSERT INTO mes_citations(NOM_AUTEUR,CITATION)
+    VALUES('$auteur','$citation')";
+    $dbco->exec($sql);
+    echo "ENTRE AJOUTEE DANS LA TABLE";
+}
+    catch(PDOException $e){
+        echo "Erreur : " .$e->getMessage();
+    }
+    ?>
+    <a href="citation.php">voir mes citation prefere</a>
 </body>
 
 </html>
