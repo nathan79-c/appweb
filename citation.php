@@ -54,7 +54,7 @@
     ?>
     <table>
       <thead>
-        <tr>
+        <tr class="head">
           <th>ID</th>
           <th>AUTEUR</th>
           <th>CITATION</th>
