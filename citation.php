@@ -24,25 +24,11 @@
        $tmt = $dbco->query($sql);
 
 
-      /*  $sth = $dbco->query("SELECT nom_auteur, citation FROM mes_citations");
-        $sth->execute();
-        $resultat = $sth->fetchAll(PDO::FETCH_ASSOC);  */
+     
         if($tmt == false){
           die("Erreur");
         }
-/*
-        echo '<pre>';
-        print_r ($resultat);
-        echo '</pre>';
-      */
-     /*  foreach($resultat as $afficher => $infos){
-         echo $afficher. '<br>';
-          foreach($infos as $citation => $valeur){
-           
-                echo  '<h3>'. '<p>' .$citation.'</p>'. ' ' .$valeur.
-                '</h3>';
-          }
-      }  */
+
     }
     catch(PDOException $e)
     {
