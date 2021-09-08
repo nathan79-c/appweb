@@ -4,58 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <title>mes citation</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>mes citations preferes</title>
 </head>
 <body>
-<h1>veuiller entre votre citation</h1>
-
-<form action="index.php" method="POST">
-    <label for="auteur">quel est le nom de l'auteur</label>
-    <input type="text" name="auteur" require></br>
-    <label for="citation">entrez  votre citation preferer</label>
-    <textarea name="citation"></textarea>
-    </br>
-    <input type="submit" value="envoyer" name="insert" class="btn btn-danger">
-</form>
-    <!--
-
-
-   -->
-    <?php
-
+<diV class="conteneur">
+    <h1>LISTE DE CITATION PREFEREES</h1>
   
+
+    <?php 
   $host = "localhost" ;
   $dbname = "pdodb";
   $utilisateur = "root";
   $password = "";
-  if(!empty($_POST['auteur']) && !empty($_POST['citation'])) {
-     try{
-        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $utilisateur,$password);
-     }
-     catch(PDOException $exc){
-         echo $exc->getMessage();
-         exit();
-     }
-     $auteur = $_POST['auteur'];
-    $citation =  $_POST['citation'];
 
-    $sql = "INSERT INTO MES_CITATIONS(NOM_AUTEUR,CITATION)
-    VALUES(:auteur,:citation)";
-    $res = $pdo->prepare($sql);
-    $exec = $res->execute(array(":auteur"=>$auteur,":citation"=>$citation));
-    if($exec){
-        echo 'donner inserer';
-    }/*else{
-        echo "echec de l'operation"; 
-    }*/else{
-        echo "echec de l'operation";
+  $dsn = "mysql:host=$host;dbname=$dbname";
+  $sql = "SELECT * FROM  MES_CITATIONS";
+    try{
+        $dbco = new PDO("mysql:host=$host;dbname=$dbname", $utilisateur,$password);
+       $tmt = $dbco->query($sql);
+
+
+     
+        if($tmt == false){
+          die("Erreur");
+        }
+
     }
-  }
-  ?>
-    <a href="citation.php">voir mes citation prefere</a>
- 
-    
-</body>
+    catch(PDOException $e)
+    {
+        echo $e->getMessage();
+    }
 
+    
+    
+    ?>
+    <a href="index.php" >ajouter une nouvelle citation</a>
+    <table>
+      <thead>
+        <tr class="head">
+          <th>ID</th>
+          <th>AUTEUR</th>
+          <th>CITATION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php while($row = $tmt->fetch(PDO::FETCH_ASSOC)) : ?>
+          <tr>
+            <td><?php echo htmlspecialchars($row['ID']); ?></td>
+            <td><?php echo htmlspecialchars($row['NOM_AUTEUR']); ?></td>
+            <td><?php echo htmlspecialchars($row['CITATION']); ?></td>
+
+          </tr>
+          <?php endwhile; ?>
+      </tbody>
+    </table>
+    </diV>
+    
+
+</body>
 </html>
