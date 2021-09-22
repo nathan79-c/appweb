@@ -39,7 +39,7 @@
     
     
     ?>
-    <a href="index.php" >ajouter une nouvelle citation</a>
+    <a href="input.php" class="btn btn-success" >ajouter une nouvelle citation</a>
     <table>
       <thead>
         <tr class="head">

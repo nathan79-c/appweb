@@ -3,6 +3,7 @@
 body{
     background-color: rgba(20, 20, 20, 0.9);
     color: blanchedalmond;
+    padding-bottom: 20px;
     
 }
 .head{
@@ -18,6 +19,8 @@ a{
     color: rgba(51, 125, 221, 0.6);
     font-size: 20px;
     margin-top: 30px;
+    padding-top: 20px;
+
 }
 .conteneur{
     width: 100vw;
@@ -25,5 +28,7 @@ a{
 }
 table{
     position: absolute;
-    left: 250px;
+    top: 200px;
+    
+    bottom: 70px;
 }

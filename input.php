@@ -10,7 +10,7 @@
 <body>
 <h1>veuiller entre votre citation</h1>
 
-<form action="index.php" method="POST">
+<form action="input.php" method="POST">
     <label for="auteur">quel est le nom de l'auteur</label>
     <input type="text" name="auteur" require></br>
     <label for="citation">entrez  votre citation preferer</label>
@@ -53,7 +53,7 @@
     }
   }
   ?>
-    <a href="citation.php">voir mes citation prefere</a>
+    <a href="index.php">voir mes citation prefere</a>
  
     
 </body>
